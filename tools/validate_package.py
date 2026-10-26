@@ -57,7 +57,7 @@ def distributable_files(skill: Path) -> list[Path]:
     result: list[Path] = []
     for path in _skill_files(skill):
         relative = path.relative_to(skill)
-        if relative.as_posix() in {"SKILL.md", "MANUAL.md", "requirements.txt"}:
+        if relative.as_posix() in {"SKILL.md", "MANUAL.md", "requirements.txt", "requirements-contour.txt"}:
             result.append(path)
         elif len(relative.parts) > 1 and (
             relative.parts[0] == "references" and path.suffix.lower() == ".md"

@@ -4,7 +4,7 @@
 
 Esta skill orienta Codex ou Claude Code na recriação fiel de uma interface, com preparação, coleta, medições, implementação quando pedida e validação visual. O usuário acompanha imagens reais e aprova cada etapa dependente. O agente registra se um resultado é medido, estimado, proposto ou desconhecido.
 
-Ela combina instruções portáteis com dois utilitários Python. Não é um conversor autônomo de screenshot em código nem recupera automaticamente o código-fonte original de um app.
+Ela combina instruções portáteis com utilitários Python e um mecanismo geométrico opcional. Não é um conversor autônomo de screenshot em código nem recupera automaticamente o código-fonte original de um app.
 
 ## 2. Instalação
 
@@ -97,6 +97,12 @@ Cada checkpoint apresenta a referência, o resultado e o que conferir. A pergunt
 Antes de esperar a resposta, configurações temporárias e instrumentação são restauradas/encerradas. Uma revisão humana não justifica manter o aparelho alterado.
 
 ## 6. Ferramentas de imagem
+
+### Análise Matemática de Contornos e Bordas
+
+Depois da medição inicial e antes da reconstrução, o [módulo opcional de contornos](references/contour-tools.md) analisa geometria observada com NumPy. Inclui retas, polígonos/chanfros, arcos, Béziers, caminhos abertos, faixas e efeitos estimados, SDF, JSON/SVG editáveis e revisões paramétricas. Instale `requirements-contour.txt` para usá-lo; as ferramentas anteriores mantêm suas dependências.
+
+Use `analyze` para regiões fechadas, `trace-open` para bordas conectadas entre âncoras e `revise` para corrigir modelos fechados sem refazer a coleta. Mostre e valide esta etapa. A composição em tela completa preserva contexto externo da captura; não é uma reconstrução independente de toda a tela.
 
 Dentro da pasta da skill, veja a ajuda:
 

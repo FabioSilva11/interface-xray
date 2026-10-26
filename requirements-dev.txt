@@ -1,2 +1,3 @@
 -r interface-xray/requirements.txt
+-r interface-xray/requirements-contour.txt
 PyYAML>=6,<7

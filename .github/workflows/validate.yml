@@ -10,6 +10,9 @@ permissions:
 
 jobs:
   validate:
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

@@ -33,6 +33,25 @@ Documente a ordem de sobreposição, os arquivos reutilizáveis e regiões ocult
 
 ## Tipografia e limites de layout
 
+Registre candidatos de fonte e regras de layout conforme as etapas correspondentes.
+
+## Análise Matemática de Contornos e Bordas
+
+- Critério geométrico para procedimento tradicional ou matemático:
+- IDs, bboxes, recortes, sementes e escala:
+- Captura limpa/diagnóstica, exclusões e população de pixels desconhecidos:
+- Primitivas, vértices/controles, caminhos externos/internos e furos:
+- Espessuras variáveis, cores, gradientes, halo e sombras:
+- Pesos, tolerância, orçamento e histórico de ajuste:
+- JSON/SVG/SDF e imagens de diagnóstico:
+- Chamfer/Hausdorff/precisão/cobertura e condições:
+- MAE/SSIM, máscaras, pixels avaliados e composição:
+- Comparações isolada e contextual; regiões preservadas da captura:
+- Revisões de parâmetros e arquivos novos:
+- Opinião e confirmação explícita do usuário:
+
+## Detalhes de tipografia e layout
+
 Registre candidatos de fonte, conteúdo conferido, tamanho estimado, quebras e baseline; defina ancoragens, mínimos/máximos, gaps, overflow e comportamento conhecido/proposto.
 
 ## Coleta Android, quando aplicável

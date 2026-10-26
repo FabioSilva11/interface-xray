@@ -1,5 +1,7 @@
 # Ferramentas locais para imagens
 
+Para chanfros, curvas, arcos, bordas compostas e revisão paramétrica, use o módulo opcional de [análise matemática de contornos](contour-tools.md). Os comandos abaixo mantêm contrato e dependências anteriores.
+
 O utilitário [image_tools.py](../scripts/image_tools.py) mede arquivos raster locais com Pillow. Não usa rede, OCR, geração de imagens nem serviços externos. As entradas são abertas somente para leitura. Execute os exemplos a partir da pasta que contém `interface-xray/`; se a skill estiver instalada em outro local, ajuste o caminho do script.
 
 ## Dependências

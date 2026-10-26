@@ -34,14 +34,22 @@ Consulte o [manual completo](interface-xray/MANUAL.md) para instalação em Wind
 | Recursos indisponíveis | Inventário de restrições e alternativas públicas/localmente representativas para revisão. |
 | Progresso acompanhado | Fotos/capturas reais, pedido de opinião, confirmação, correção e histórico por etapa. |
 | Validação | Sobreposição, imagem de diferenças, métricas de pixels e revisão por região. |
+| Geometria matemática opcional | Caminhos editáveis, chanfros/polígonos/Béziers/arcos, SDF, faixas e efeitos estimados, com revisão por parâmetros. |
 
 Os scripts automatizam tarefas delimitadas. Reconhecimento de componentes/fontes, busca da origem, coleta web e revisão continuam conduzidos pelo agente com as ferramentas disponíveis. Uma screenshot não comprova dp, fonte, CSS original nem conteúdo escondido por regiões opacas.
 
 ## Documentação e ferramentas
 
+### Comparação geométrica
+
+![Referências sintéticas, reconstrução, bordas e diferenças](docs/examples/contour-gallery.png)
+
+Exemplos sintéticos reproduzíveis. A última coluna amplia diferenças 6× apenas para exibição. A reconstrução contextual preserva o exterior do componente e oclusões; o fundo texturizado mostra uma limitação real de aparência. Consulte [condições e resultados](docs/examples/README.md).
+
 - [Instruções da skill](interface-xray/SKILL.md).
 - [Manual e catálogo completo de capacidades](interface-xray/MANUAL.md).
 - [Imagens: inspeção, anotações e comparação](interface-xray/references/image-tools.md).
+- [Contornos: extração matemática, SVG e revisões](interface-xray/references/contour-tools.md).
 - [Coleta Android](interface-xray/references/android-acquisition.md) e [utilitário ADB](interface-xray/references/adb-tool.md).
 - [Origem e cópia offline web](interface-xray/references/web-acquisition.md).
 - [Modelo de relatório e revisão](interface-xray/references/report-template.md).

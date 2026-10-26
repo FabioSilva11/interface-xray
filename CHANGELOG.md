@@ -1,5 +1,14 @@
 # Alterações
 
+## 1.1.0 — 2026-10-26
+
+- Extração geométrica opcional com Sobel/Canny, regiões conectadas, retas, chanfros, polígonos, Béziers e arcos.
+- SDF e renderização CPU, furos, faixas variáveis, gradientes e halo/sombra estimados.
+- Caminhos abertos entre âncoras observadas e exportação JSON/SVG editável.
+- Revisões por cor, espessura, efeito, vértices e pontos de controle, preservando máscaras e evidências.
+- Diagnósticos locais e em contexto, métricas separadas e exemplos sintéticos com parâmetros conhecidos.
+- Etapa Análise Matemática de Contornos e Bordas no fluxo da skill; dependências antigas preservadas.
+
 ## 1.0.0 — 2026-10-26
 
 - Skill portátil para Codex e Claude Code, em português.

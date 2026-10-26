@@ -23,6 +23,7 @@ Leia a referência correspondente antes de usar um utilitário:
 - [Ferramentas de imagem](references/image-tools.md): `scripts/image_tools.py` inspeciona pixels/metadados, anota caixas fornecidas e compara capturas sem redimensionamento ou alinhamento automático. Requer Python 3.10+ e Pillow de `requirements.txt`.
 - [Captura Android](references/adb-tool.md): `scripts/adb_capture.py` coleta uma tela, metadados e a hierarquia exposta quando disponível. Requer Python 3.10+, ADB e dispositivo autorizado. Não ativa limites de layout; siga o procedimento de configuração e restauração.
 - [Modelo de relatório](references/report-template.md): organiza evidências, inventário, recursos, correções e aprovações. Preencha com resultados reais.
+- [Análise matemática de contornos](references/contour-tools.md): `scripts/contour_tools.py analyze`, `trace-open` e `revise` extraem caminhos editáveis, SDF, camadas estimadas, diagnósticos e métricas. Dependências opcionais em `requirements-contour.txt`; os comandos anteriores permanecem independentes de NumPy.
 
 Os scripts preservam entradas e recusam sobrescrever saídas existentes. Use novo nome/diretório a cada revisão. Não confunda marcação automática de caixas fornecidas com detecção automática de componentes. Para instalação, capacidades e solução de problemas, consulte o [manual](MANUAL.md).
 
@@ -148,6 +149,19 @@ Por componente relevante, registre:
 Amostre cores no interior de áreas uniformes, evitando bordas suavizadas. Registre perfil/espaço de cor quando relevante; compressão, transparência e gerenciamento de cores afetam o resultado. Preserve o perfil do original e documente conversões usadas para comparar.
 
 Detecte repetições para propor tokens de espaçamento, cores, raios e tamanhos. Não force uma grade de 4 ou 8 unidades quando ela contradisser a referência. Preserve medições observadas e documente qualquer normalização proposta.
+
+## 3.1. Análise Matemática de Contornos e Bordas
+
+Execute depois da identificação e medição inicial das regiões, antes da reconstrução final. Decida pela geometria observada, não pelo nome do componente: retângulos simples podem seguir o procedimento tradicional; chanfros, assimetrias, curvas ornamentais, contornos duplos ou variáveis, anéis e efeitos pedem análise matemática.
+
+1. Priorize a captura limpa e preserve seu hash. Use o bbox/seed do inventário como pistas de localização, não como prova de que o contorno seja retangular. A hierarquia ADB e Mostrar limites de layout localizam regiões, mas não revelam curvas Canvas, shaders ou OpenGL ES.
+2. Leia o [guia do mecanismo](references/contour-tools.md). Analise o componente com `analyze`; para bordas abertas conectadas, use `trace-open` com extremidades observadas. Se houver marcações/oclusões, forneça exclusões explícitas; a heurística de cores diagnósticas é opt-in e precisa de revisão.
+3. Mostre a origem sem alterações, recorte ampliado, bordas, pontos/controles, caminhos, renderização, sobreposição e diferenças. Mostre também a composição em tela completa, identificando que o contexto externo foi preservado e não reconstruído independentemente.
+4. Separe métricas geométricas das de aparência; registre máscaras, população de pixels, escala, tolerância e método. Cores/alpha de pixels compostos, fechamento de bordas ocultas e escolha de primitivas são estimativas. Não converta Chamfer, SSIM ou fração de pixels em uma porcentagem universal de fidelidade.
+5. Exporte `element.json` e `element.svg` editáveis; preserve os parâmetros, SDF e métodos para reutilização em SVG/Canvas/Android. Não finja que os adaptadores de todas essas plataformas já foram implementados. MSDF não é exigido no caminho CPU/SVG; registre sua ausência quando o alvo depender de texturas GPU com preservação de cantos.
+6. Peça confirmação visual desta etapa. Para corrigir regiões fechadas, use `revise` em nova pasta com cores, espessuras, brilho, vértices ou `base_path` e pontos de controle. A revisão preserva a fonte e suas máscaras e não refaz toda a preparação. Se a alteração afetar medições já aprovadas, revalide as etapas afetadas.
+
+Se as bordas não forem determináveis, peça outra vista/captura ou marque os trechos como desconhecidos. Um caminho matemático candidato não comprova que os pixels ocultos foram recuperados. O sucesso do comando não registra aprovação do usuário.
 
 ## 4. Estimar texto e tipografia
 
