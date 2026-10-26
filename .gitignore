@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+.coverage
+htmlcov/
+captures/
+checkpoints/
+evidence/
+offline/
+*.har
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
